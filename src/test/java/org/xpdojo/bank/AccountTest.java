@@ -7,6 +7,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AccountTest {
 
     @Test
+    public void validateEmptyConstructor() {
+        Account account = new Account();
+        assertThat(account.balance()).isEqualTo(0);
+    }
+
+    @Test
+    public void validateConstructorWithAmount() {
+        Account account = new Account(1234);
+        assertThat(account.balance()).isEqualTo(1234);
+    }
+
+    @Test
     public void newAccountShouldHaveZeroBalance() {
         Account account = new Account();
         assertThat(account.balance()).isEqualTo(0);
@@ -44,11 +56,8 @@ public class AccountTest {
 
     @Test
     public void transferMoneyBetweenAccounts() {
-        Account account_deposit = new Account();
-        Account account_withdraw = new Account();
-
-        account_deposit.deposit(200);
-        account_withdraw.deposit(500);
+        Account account_deposit = new Account(200);
+        Account account_withdraw = new Account(500);
 
         account_withdraw.transfer(account_deposit, 50);
 
