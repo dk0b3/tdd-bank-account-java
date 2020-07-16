@@ -14,5 +14,10 @@ public class Account {
     public void withdraw(int amount) {
         balance = this.balance - amount;
     }
+
+    public void transfer(Account account_to, int amount) {
+        account_to.deposit(amount);
+        this.balance = this.balance - amount;
+    }
 }
 
