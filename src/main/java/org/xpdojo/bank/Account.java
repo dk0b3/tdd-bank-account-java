@@ -10,5 +10,9 @@ public class Account {
     public void deposit(int amount) {
         balance = this.balance + amount;
     }
+
+    public void withdraw(int amount) {
+        balance = this.balance - amount;
+    }
 }
 
